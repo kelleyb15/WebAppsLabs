@@ -79,11 +79,23 @@ var countTags = function countTags(items) {
  * EXTRACT HASHTAGS
  */
 var extractHashTags = function extractHashTags(str) {
-   var r = /#\w+/g;
+   var r = /#[A-Za-z]+/g;
+   var arr=str.match(r);
+   var arr2=[];
+   console.log(str);
+   console.log(arr);
 
-   for (var i = Things.length - 1; i >= 0; i--) {
-      Things[i]
-   };
-   return str.match(r);
+
+   if (arr === null) {
+      return [];
+   }
+
+   for (var i = 0; i < arr.length; i++) {
+      if (arr2.indexOf(arr[i].slice(1,arr[i].length)) === -1) {
+        arr2.push(arr[i].slice(1,arr[i].length));
+      }
+   }
+   console.log(arr2);
+   return arr2;
 
 };
