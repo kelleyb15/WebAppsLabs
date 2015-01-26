@@ -82,7 +82,7 @@ This should make the test pass. Commit and close the issue.
 
 ### Step 2: makeStack returns an object with certain keys.
 
-Now that `makeStack` is a function, the next thing to set up is that it is returning the right short of thing, namely an object with 3 keys, and further these keys being functions.
+Now that `makeStack` is a function, the next thing to set up is that it is returning the right sort of thing, namely an object with 3 keys, and further these keys being functions.
 
 It is important at this point to focus on testing the interface of your application. We don't really need to know how `makeStack` is implemented internally, as that might change with iterations of the application. We should make sure that the provided "external interface", the stuff that callers of `makeStack` can rely of, is consistent.
 

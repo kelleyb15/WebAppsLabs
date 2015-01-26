@@ -17,3 +17,10 @@ describe('Your code for stacks', function() {
 		expect(makeStack).to.be.a('function');
 	});
 });
+
+describe('Your makeStack function', function() {
+	var stack = makeStack();
+	it('returns an object', function() {
+    	expect(stack).to.be.a('object');
+	});
+});
