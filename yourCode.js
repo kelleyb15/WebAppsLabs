@@ -8,13 +8,18 @@ var makeStack = function() {
 
 	var stack = {
 		push: function(item) {
-			//
+			values.push(item);
+            return stack;
 		},
 		pop: function() {
-			//
+            if (stack.isEmpty()) {
+                throw new Error("Attempt to pop from empty stack");
+            } else {
+                return values.pop();
+            }
 		},
 		isEmpty: function() {
-			//
+			return values.length === 0;
 		}
 	};
 	return stack;
