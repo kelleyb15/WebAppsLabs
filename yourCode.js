@@ -4,8 +4,10 @@
  */
 // All your code will go here
 var makeStack = function() {
-	return {
-		push: function() {
+	var values = [];
+
+	var stack = {
+		push: function(item) {
 			//
 		},
 		pop: function() {
@@ -15,6 +17,7 @@ var makeStack = function() {
 			//
 		}
 	};
+	return stack;
 };
 
 
