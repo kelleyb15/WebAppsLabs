@@ -7,9 +7,9 @@
 var makeMap = function() {
 // All your code will go inside this function
    // This object should contain the methods you want to expose:
-   var o;
+   var o = {};
    // Use this object to store the key-value pairs:
-   var storedPairs;
+   var storedPairs = {};
 
    // Add initialization code here
 
@@ -19,7 +19,6 @@ var makeMap = function() {
 
    return o;
 }
-
 
 // Do NOT change anything below this line.
 /*
