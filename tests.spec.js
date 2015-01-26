@@ -13,5 +13,4 @@ describe('Your code for stacks', function() {
    it('defines a variable makeStack', function() {
    	expect(function() { makeStack; }).to.not.throw(Error);
    });
-   
 });
