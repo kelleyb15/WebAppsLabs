@@ -44,7 +44,6 @@ function makeTaskFromString(str) {
 
 proto = {
    // Add instance methods here
-
 };
 
 
