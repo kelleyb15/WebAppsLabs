@@ -22,7 +22,7 @@ var makeController = function(element) {
    addAddButton();
    // Bind events to controller functions
    bindEvents();
-
+   
 
    /*
     * Everything below here is the functions you need to implement.
@@ -40,7 +40,10 @@ var makeController = function(element) {
     * an "input" button for "remove". See examples in sample.html
     */
    function newTaskHTML(str) {
+      var htmlString = "<li><span>" + str + "</span>";
+      htmlString += "<input type='button' class='remove' value='Remove'></li>";
 
+      return htmlString;
    }
 
    /*
