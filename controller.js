@@ -101,12 +101,11 @@ var makeController = function(element) {
     * function.
     */
    function addAddButton() {
-      console.log("here");
       var button = $("<input/>", {
          type: "button",
-         value: "New",
-         click: addNewTask()
+         value: "New"
       });
+      button.on("click", addNewTask);
       button.appendTo(el);
 
       return this;
@@ -120,6 +119,9 @@ var makeController = function(element) {
     * - Return true to not prevent propagation.
     */
    function addNewTask(ev) {
+      console.log("Pressed add button.");
+      tasks.push("New Task");
+      el.append(newTaskHTML("New Task"));
       return true;
    }
 
