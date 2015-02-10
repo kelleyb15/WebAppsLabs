@@ -118,7 +118,6 @@ var makeController = function(element) {
     * - Return true to not prevent propagation.
     */
    function addNewTask(ev) {
-      console.log("Pressed add button.");
       tasks.push("New Task");
       el.append(newTaskHTML("New Task"));
       return true;
@@ -134,7 +133,9 @@ var makeController = function(element) {
     * - Return true to not prevent propagation.
     */
    function removeElement(ev) {
-      console.log(getLi(ev));
+      var liEl = getLi(ev), elIndex = getIndex(liEl);
+      tasks.splice(elIndex, 1);
+      liEl.remove();
       return true;
    }
 
