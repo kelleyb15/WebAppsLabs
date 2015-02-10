@@ -100,6 +100,8 @@ var makeController = function(element) {
       });
 
       $(".edit").remove();
+
+      return li;
    }
 
    /*
