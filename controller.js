@@ -13,16 +13,13 @@ var makeController = function(element) {
 
    // el is a jQuery object wrapping "element", in case it wasn't a jQuery
    // object already.
-   var el = $(element);
-
    // "tasks" is an array of strings for the tasks to be shown.
-   var tasks = [];
+   var el = $(element), tasks = [];
 
    // add an "add" button right after the element
    addAddButton();
    // Bind events to controller functions
    bindEvents();
-   
 
    /*
     * Everything below here is the functions you need to implement.
@@ -52,7 +49,8 @@ var makeController = function(element) {
     * Use jQuery's "closest".
     */
    function getLi(ev) {
-
+      var listEl = $(ev.target).closest("li");
+      return listEl;
    }
 
    /*
@@ -135,6 +133,7 @@ var makeController = function(element) {
     * - Return true to not prevent propagation.
     */
    function removeElement(ev) {
+      console.log(getLi(ev));
       return true;
    }
 
