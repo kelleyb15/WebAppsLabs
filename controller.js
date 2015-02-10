@@ -97,9 +97,10 @@ var makeController = function(element) {
    function disableEditMode(li) {
       $(".edit").remove();
 
-      $(li).children().each(function() {
+      $("li").children().each(function() {
          $(this).toggleClass("hidden");
-      });      
+      });
+
 
       return li;
    }
@@ -197,6 +198,17 @@ var makeController = function(element) {
     * - Return true to allow propagation
     */
    function commitEditing(ev) {
+      var value;
+      if ($(ev.target).siblings(".edit").length !== 1) {
+         return true;
+      } else {
+         value = getLi(ev).val();
+         tasks[getIndex(ev.target).closest("li")] = value;
+
+         $(ev.target).siblings("span").val = value;
+         disableEditMode();
+      }
+
       return true;
    }
 
