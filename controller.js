@@ -199,13 +199,15 @@ var makeController = function(element) {
     */
    function commitEditing(ev) {
       var value;
-      if ($(ev.target).siblings(".edit").length !== 1) {
+      if ($(ev.target).siblings(".edit").length === 1) {
          return true;
       } else {
-         value = getLi(ev).val();
-         tasks[getIndex(ev.target).closest("li")] = value;
+         value = getLi(ev).find("input").html();
+         tasks[getIndex($(ev.target).closest("li"))] = value;
 
-         $(ev.target).siblings("span").val = value;
+         console.log(value);
+
+         $(ev.target).closest("span").html(value);
          disableEditMode();
       }
 
