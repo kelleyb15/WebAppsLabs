@@ -95,7 +95,11 @@ var makeController = function(element) {
     * - Returns the list item
     */
    function disableEditMode(li) {
+      $(li).children().each(function() {
+         $(this).toggleClass("hidden");
+      });
 
+      $(".edit").remove();
    }
 
    /*
@@ -163,6 +167,7 @@ var makeController = function(element) {
    function editElement(ev) {
       var liEl = getLi(ev);
       enableEditMode(liEl);
+
       return true;
    }
 
