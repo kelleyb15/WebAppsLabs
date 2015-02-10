@@ -4,6 +4,8 @@
  * Controls the interaction between the page and an array of values
  */
 
+/*global $*/
+
 /*
  * Used to create a new "controller".
  * "element" needs to be a DOM or jQuery "ul" element.
@@ -72,7 +74,16 @@ var makeController = function(element) {
     * - Returns a reference to the jQuery wrapper of that edit element.
     */
    function enableEditMode(li) {
+      var inputHtml = $("<input>", {
+         type: "text",
+         class: "edit"
+      });
+      $(li).children().each(function() {
+         $(this).toggleClass("hidden");
+      });
+      $(li).append(inputHtml);
 
+      return inputHtml;
    }
 
    /*
@@ -150,6 +161,8 @@ var makeController = function(element) {
     * - Return true to allow propagation.
     */
    function editElement(ev) {
+      var liEl = getLi(ev);
+      enableEditMode(liEl);
       return true;
    }
 
