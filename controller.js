@@ -95,11 +95,11 @@ var makeController = function(element) {
     * - Returns the list item
     */
    function disableEditMode(li) {
+      $(".edit").remove();
+
       $(li).children().each(function() {
          $(this).toggleClass("hidden");
-      });
-
-      $(".edit").remove();
+      });      
 
       return li;
    }
@@ -122,7 +122,7 @@ var makeController = function(element) {
          value: "New"
       });
       button.on("click", addNewTask);
-      button.appendTo(el);
+      el.after(button);
 
       return this;
    }
@@ -168,7 +168,7 @@ var makeController = function(element) {
     */
    function editElement(ev) {
       var liEl = getLi(ev);
-      enableEditMode(liEl);
+      enableEditMode(liEl).focus();
 
       return true;
    }
@@ -214,6 +214,8 @@ var makeController = function(element) {
    function checkForCancel(ev) {
       if (ev.keyCode !== 0x1B) {
          return true;
+      } else {
+         disableEditMode(ev.target);
       }
 
       return false;
